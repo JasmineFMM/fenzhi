@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        .father{
+            width:100%;
+            height:400px;
+            background-color: cornflowerblue;
+            overflow: hidden;
+            /* display:flex; */
+            /* align-items:stretch */
+            /* position:relative */
+            /* overflow: hidden; */
+        }
+        .box1{
+            width:200px;
+            height:200px;
+            /* margin-left:50%;
+            transform:translateX(-50%); */
+            /* height:300px; */
+            margin-top:200px;
+            transform: translateY(-50%);
+            background-color: blueviolet;
+            /* position:absolute; */
+            /* float:left */
+        }
+        .box2{
+            /* width:200px;
+            background-color: rgb(186, 226, 43); */
+            /* overflow: hidden; */
+            /* flex:1 */
+            /* flex: 1; */
+            /* margin-left:200px; */
+            /* float:right; */
+            /* position:absolute; */
+            /* right:0;
+            top:0; */
+
+        }
+        .center{
+            /* background-color: chocolate; */
+            /* height:200px; */
+            /* margin:0 200px; */
+            /* flex:1 */
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="box1">dddddddddddddddd</div>
+        <!-- <div class="box2">xcbcvb</div>
+        
+        <div class="center">1232433</div> -->
+    </div>
+    <script>
+        // function fib(n){
+        //     if(n==1 || n==2){
+        //         return 1;
+        //     }
+        //     return fib(n-1)+fib(n-2);
+        // }
+        // console.log(fib(5));
+        // function A(){
+        //     console.log(this);
+        //     return {name:"fmm"}
+        // }
+        // let a = new A()
+        // console.log(a);
+        // var length = 10;
+        // function fn(){
+        //     console.log(this.length);
+        // }
+        // var obj = {
+        //     length:5,
+        //     method:function(fn){
+        //         fn()
+        //         arguments[0]();//fn()
+        //         // console.log(arguments[0]);
+        //     }
+        // }
+        // console.log(obj.method(fn));
+
+        // function side(arr) {
+        //     arr[0] = arr[2];
+        // }
+        // function a(a, b, c = 3) {
+        //     c = 10;
+        //     side(arguments);
+        //     return a + b + c;
+        // }
+        // console.log(a(1, 1, 1));
+
+        // var a=?;
+        // if(a==1&&a==2&&a==3){
+        //     console.log('小样儿！');
+        // }
+        //手动实现new
+        // function myNew (fun, ...arg) {
+        //     // 创建一个新对象且将其隐式原型指向构造函数原型
+        //     let obj = {
+        //         __proto__: fun.prototype 
+        //     }
+        //     // 执行构造函数
+        //     fun.apply(obj, arg)
+        //     // 返回该对象
+        //     return obj
+        // }
+
+        // function Person (name, age) {
+        //     this.name = name ;
+        //     this.age = age
+        //     console.log(this);
+        // }
+        // let _person = myNew(Person, 'huang', '21')
+        // console.log(_person)
+        // let str = "hi how are you i am fine thank you youtube am am"
+        // function count(str,word){
+        //     let arr = str.split(" ")
+        //     let num = 0;
+        //     for(let i = 0;i < arr.length;i++){
+        //         if(arr[i] == word){
+        //             num++
+        //         }
+        //     }
+        //     console.log(arr,num);
+        // }
+        // count(str,"am")
+        
+        let str = "hihowareyouiamfinethankyouyoutubeamam"
+        function count(str,word){
+            let num = 0;
+            let a = str.indexOf(word)
+            console.log(a);
+            while(a != -1){
+                count++;
+                str = str.substr(a + word.length);
+                console.log(str);
+                a = str.indexOf(word)
+            }
+            return num
+        }
+        count(str,"am")
+    </script>
+</body>
+</html>
+
+<!-- 一个程序至少有一个进程,一个进程至少有一个线程.
+线程的划分尺度小于进程，使得多线程程序的并发性高。
+另外，进程在执行过程中拥有独立的内存单元，而多个线程共享内存，从而极大地提高了程序的运行效率。
+线程在执行过程中与进程还是有区别的。每个独立的线程有一个程序运行的入口、顺序执行序列和程序的出口。但是线程不能够独立执行，必须依存在应用程序中，由应用程序提供多个线程执行控制。
+从逻辑角度来看，多线程的意义在于一个应用程序中，有多个执行部分可以同时执行。但操作系统并没有将多个线程看做多个独立的应用，来实现进程的调度和管理以及资源分配。这就是进程和线程的重要区别。 -->

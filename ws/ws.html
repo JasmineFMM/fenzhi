@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>websocket</title>
+    <link rel="stylesheet" href="./ws.css">
+    <script src="./rem.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            friend
+        </header>
+        <section class="turn"></section>
+        <footer>
+            <textarea class="text"></textarea>
+            <div class="btns">
+                <span class="close">断开连接</span>
+                <span class="send">发送(S)</span>
+            </div>
+        </footer>
+    </div>
+    <script>
+        //获取DOM
+        let text = document.getElementsByClassName("text")[0],
+            close = document.getElementsByClassName("close")[0],
+            send = document.getElementsByClassName("send")[0],
+            turn = document.getElementsByClassName("turn")[0]
+        // 实例化WS
+        let ws = new WebSocket("ws://localhost:3004/websocket/test")
+        // 建立连接
+        ws.addEventListener("open",(e)=>{
+            console.log("连接成功："+e.target.readyState);
+        })
+        // 传输数据
+        ws.addEventListener("message",(e)=>{
+            console.log(e.data);
+            turn.innerHTML += `<p><img src="1.jpg"/> ${e.data}</p>`;
+        })
+        // 点击发送
+        send.onclick = ()=>{
+            ws.send(text.value)
+            text.value = ""
+        }
+        // 断开连接
+        close.onclick = ()=>{
+            ws.close()
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>webworker</title>
+</head>
+<body>
+    <script>
+        let arr = [1,2,3,4,5,6]
+        let worker1 = new Worker("worker1.js")
+
+        worker1.postMessage(arr)
+
+        worker1.addEventListener("message",(e)=>{
+            let result = e.data
+            // console.log(result);
+        })
+// 
+        let obj = {
+            name:"fmm",
+            age:18,
+            sex:"女"
+        }
+        let worker2 = new Worker("worker2.js")
+        worker2.postMessage(obj)
+        worker2.addEventListener("message",(e)=>{
+            // console.log(e);
+            let result = e.data
+            console.log(result);
+        })
+        // worker2.
+
+
+
+    </script>
+</body>
+</html>
